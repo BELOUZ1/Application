@@ -23,6 +23,15 @@
             android:exported="false"
             android:label="@string/title_activity_home_doctor" />
         <activity
+            android:name=".UserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MessageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DocteurActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChangPassword"
             android:exported="false" />
         <activity

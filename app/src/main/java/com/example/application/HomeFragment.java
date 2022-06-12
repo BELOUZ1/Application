@@ -41,6 +41,7 @@ public class HomeFragment extends Fragment {
         information = (Button) context.findViewById(R.id.inputinfo);
         setting = (Button) context.findViewById(R.id.inputSetting);
         chat = (Button) context.findViewById(R.id.inputChat);
+        exit = context.findViewById(R.id.inputExit);
 
         docrors.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +77,12 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().finish();
+            }
+        });
 
     }
 

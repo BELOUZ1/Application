@@ -54,11 +54,6 @@ public class PhotoFragment extends Fragment {
         photoList.add(new Photo(R.drawable.photo23, "Photo 23"));
         photoList.add(new Photo(R.drawable.photo24, "Photo 24"));
         photoList.add(new Photo(R.drawable.photo25, "Photo 25"));
-        photoList.add(new Photo(R.drawable.photo26, "Photo 26"));
-        photoList.add(new Photo(R.drawable.photo27, "Photo 27"));
-        photoList.add(new Photo(R.drawable.photo28, "Photo 28"));
-
-
 
         View v = inflater.inflate(R.layout.fragment_photo, container, false);
 
