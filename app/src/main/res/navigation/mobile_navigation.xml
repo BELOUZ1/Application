@@ -17,4 +17,10 @@
         android:label="Patient"
         tools:layout="@layout/fragment_patient" />
 
+    <fragment
+        android:id="@+id/navigation_rdv"
+        android:name="com.example.application.ui.rdv.RDVFragment"
+        android:label="RDV"
+        tools:layout="@layout/fragment_r_d_v" />
+
 </navigation>

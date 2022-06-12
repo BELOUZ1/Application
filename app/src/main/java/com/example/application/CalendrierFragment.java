@@ -17,6 +17,10 @@ import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +48,8 @@ public class CalendrierFragment extends Fragment {
     private Button heureBTN;
     private Button validerRDV;
     private TextView dateTV;
+    private RecyclerView recyclerView;
+    private RDVAdapter adapter;
     private TextView heureTV;
     private DatabaseReference databaseRDV;
     private List<RendezVous> rendezVousList = new ArrayList<>();
@@ -68,6 +74,13 @@ public class CalendrierFragment extends Fragment {
         dateTV = view.findViewById(R.id.date_tv);
         heureTV = view.findViewById(R.id.heure_tv);
         validerRDV = view.findViewById(R.id.valider_rdv_btn);
+        recyclerView = view.findViewById(R.id.rdv_rv);
+
+        adapter = new RDVAdapter(rendezVousList, this, null);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
 
         Calendar c = Calendar.getInstance();
         lastSelectedYear = c.get(Calendar.YEAR);
@@ -104,6 +117,13 @@ public class CalendrierFragment extends Fragment {
         return view;
     }
 
+    public void deleteRDV(RendezVous rendezVous){
+        String idUser = UserFactory.getUtilisateur().getId();
+        rendezVousList.remove(rendezVous);
+        databaseRDV.child(idUser).setValue(rendezVousList);
+        Toast.makeText(getContext(), "Rendez vous supprimé", Toast.LENGTH_LONG).show();
+    }
+
     private void selectTime()  {
         TimePickerDialog.OnTimeSetListener timeSetListener = (view, hourOfDay, minute) -> {
             heure = hourOfDay + ":" + minute;
@@ -133,16 +153,19 @@ public class CalendrierFragment extends Fragment {
 
     private void getRendezVous() {
 
-        rendezVousList.clear();
+
         String id = UserFactory.getUtilisateur().getId();
+        //databaseRDV.child(id).setValue(rendezVousList);
         databaseRDV.child(id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+                rendezVousList.clear();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     RendezVous rendezVous = postSnapshot.getValue(RendezVous.class);
                     rendezVousList.add(rendezVous);
                 }
+
+                adapter.notifyDataSetChanged();
 
             }
 
