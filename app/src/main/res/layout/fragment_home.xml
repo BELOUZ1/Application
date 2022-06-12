@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".HomeFragment">
+
+
+    <TextView
+        android:id="@+id/bonjour_tv"
+        android:layout_width="330dp"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:text="Bonjour User"
+        android:textColor="#494646"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.592"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.082" />
+
+    <Button
+        android:id="@+id/inputinfo"
+        android:layout_width="155dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/input_btn1"
+        android:drawableLeft="@drawable/ic_info"
+        android:drawablePadding="10dp"
+        android:hint="Information"
+        android:paddingLeft="10dp"
+        android:textAlignment="textStart"
+        android:textColorHint="@color/white"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bonjour_tv" />
+
+
+    <Button
+        android:id="@+id/inputDoctors"
+        android:layout_width="155dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/input_btn1"
+        android:drawableLeft="@drawable/ic_pers"
+        android:drawablePadding="10dp"
+        android:hint="Doctors"
+        android:paddingLeft="10dp"
+        android:textAlignment="textStart"
+        android:textColorHint="@color/white"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/inputinfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/inputinfo" />
+
+    <Button
+        android:id="@+id/inputChat"
+        android:layout_width="155dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/input_btn1"
+        android:drawableLeft="@drawable/ic_chat"
+        android:drawablePadding="10dp"
+        android:hint="Chat"
+        android:paddingLeft="10dp"
+        android:textAlignment="textStart"
+        android:textColorHint="@color/white"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="@+id/inputinfo"
+        app:layout_constraintTop_toBottomOf="@+id/inputinfo" />
+
+    <Button
+        android:id="@+id/inputSetting"
+        android:layout_width="155dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/input_btn1"
+        android:drawableLeft="@drawable/ic_settings"
+        android:drawablePadding="10dp"
+        android:hint="Setting"
+
+        android:paddingLeft="10dp"
+        android:textAlignment="textStart"
+        android:textColorHint="@color/white"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="@+id/inputDoctors"
+        app:layout_constraintTop_toBottomOf="@+id/inputDoctors" />
+
+    <Button
+        android:id="@+id/inputExit"
+        android:layout_width="155dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="68dp"
+        android:background="@drawable/input_btn1"
+        android:drawableLeft="@drawable/ic_exit"
+        android:drawablePadding="10dp"
+        android:hint="Exit"
+        android:paddingLeft="10dp"
+        android:textAlignment="textStart"
+        android:textColorHint="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/inputSetting"
+        app:layout_constraintTop_toBottomOf="@+id/inputSetting" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
