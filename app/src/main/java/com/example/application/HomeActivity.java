@@ -85,8 +85,9 @@ public class HomeActivity extends AppCompatActivity {
                       break;
 
                   case R.id.nav_message:
-                      fragment= new MessageFragment();
-                      getSupportFragmentManager().beginTransaction().replace(R.id.body_container,fragment).commit();
+                      Intent intent = new Intent(getApplicationContext(), Doctors.class);
+                      intent.putExtra("CHAT", true);
+                      startActivity(intent);
                       break;
 
               }
